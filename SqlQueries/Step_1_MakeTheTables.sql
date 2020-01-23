@@ -28,7 +28,7 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Quote')
 
 If not exists (SELECT * FROM sys.tables WHERE [name] = 'User/Quotes')
 	BEGIN
-	CREATE TABLE [User/Quotes]
+	CREATE TABLE [User_Quotes]
 
 	(
 		[UserId] UNIQUEIDENTIFIER not null,
@@ -50,12 +50,40 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Friends')
 	ELSE 
 		PRINT 'Friends table already exists'
 
-	IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_User_Quote_User')
+	IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_Quotes_Id')
 		BEGIN
 		ALTER TABLE [User_Quotes]
-		ADD CONSTRAINT FK_UserQuote_User
+		ADD CONSTRAINT FK_Quote_Id
 			FOREIGN KEY (Id)
-			REFERENCES Users(Id)
+			REFERENCES QuoteId(Id)
 	END
 	ELSE 
-		PRINT 'User Id Foreign Key '
+		PRINT 'Quotes Id Foreign Key already exists'
+		
+	IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_User_Id')
+		BEGIN
+		ALTER TABLE [User_Quotes]
+		ADD CONSTRAINT FK_User_Id
+		FOREIGN KEY (Id)
+		REFERENCES UserId(Id)
+	END
+	ELSE 
+		PRINT 'User Id FOREIGN Key already exists'
+
+    IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_User_Id')
+		BEGIN
+		ALTER TABLE [User]
+		ADD CONSTRAINT FK_User_Id
+		FOREIGN KEY (Id)
+		REFERENCES UserId(Id)
+	END
+	ELSE
+		PRINT 'User Id FOREIGN Key for Friends already exists'
+	
+	IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_User_Id')
+		BEGIN
+		ALTER TABLE [User]
+		ADD CONSTRAINT FK_User_Id
+		FOREIGN KEY (Id)
+		REFERENCES FriendId (Id)
+	END
