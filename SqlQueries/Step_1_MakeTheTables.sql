@@ -78,7 +78,7 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Friends')
 		REFERENCES UserId(Id)
 	END
 	ELSE
-		PRINT 'User Id FOREIGN Key for Friends already exists'
+		PRINT 'User Id FOREIGN Key for UserId already exists'
 	
 	IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_User_Id')
 		BEGIN
@@ -87,3 +87,5 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Friends')
 		FOREIGN KEY (Id)
 		REFERENCES FriendId (Id)
 	END
+	ELSE 
+		PRINT 'User Id FOREIGN Key for FriendId already exists'
