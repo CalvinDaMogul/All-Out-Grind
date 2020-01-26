@@ -12,3 +12,6 @@ VALUES
  ('"Just know that I was once considered just a dreamer... Then I paid my dues and turned so many doubters to believers."',
   'Big KRIT',
   'Dreamin')
+  ('"If they dont know your dreams, then they cant shoot them down"',
+   'J. Cole',
+    'January 28th')
