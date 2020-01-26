@@ -1,13 +1,9 @@
-DECLARE @Jay_Z UNIQUEIDENTIFIER
-DECLARE @J_Cole UNIQUEIDENTIFIER
-DECLARE @Big_KRIT UNIQUEIDENTIFIER
-DECLARE @Nipsey_Hussle UNIQUEIDENTIFIER
-DECLARE @Rick_Ross UNIQUEIDENTIFIER
-DECLARE @C_Tha_God UNIQUEIDENTIFIER
-DECLARE @Little_Brother UNIQUEIDENTIFIER
-DECLARE @Rapsody UNIQUEIDENTIFIER
-
 INSERT INTO Quotes
-([Quote])
+([Quote],
+ [ArtistName],
+ [SongName])
 VALUES 
-('')
+('“Next time you see the homie and his rims spinnin’, just know my mind is workin’ just like them…the rims that is.”',
+'Jay Z',
+'Moment of Clarity')
+()
