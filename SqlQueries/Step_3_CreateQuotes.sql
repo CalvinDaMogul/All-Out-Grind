@@ -12,6 +12,12 @@ VALUES
  ('"Just know that I was once considered just a dreamer... Then I paid my dues and turned so many doubters to believers."',
   'Big KRIT',
   'Dreamin')
-  ('"If they dont know your dreams, then they cant shoot them down"',
+ ('"If they dont know your dreams, then they cant shoot them down"',
    'J. Cole',
     'January 28th')
+ ('"I learned working the negatives can make for better pictures"',
+   'Drake',
+   'HYFR')
+   ('"Sky is he limit and you know that you can have what you want, be what you want"',
+    'Notorious B.I.G.',
+	 'Sky is the Limit')
