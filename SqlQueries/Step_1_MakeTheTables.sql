@@ -1,4 +1,4 @@
---CREATE DATABASE [AllOutGrind]
+CREATE DATABASE [AllOutGrind]
 
 IF not exists (SELECT * FROM sys.tables WHERE [name] = 'User')
 	BEGIN
@@ -14,11 +14,11 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'User')
 	ELSE
 		PRINT 'User table already exists'
 
-IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Quote')
+IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Quotes')
 	BEGIN
-	CREATE TABLE [Quote]
+	CREATE TABLE [Quotes]
 	(
-		[Id] UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID()
+		[Id] UNIQUEIDENTIFIER PRIMARY KEY DEFAULT NEWID(),
 		[Quote] NVARCHAR(255)not null,
 		[ArtistName]NVARCHAR(255)not null,
 		[SongName] NVARCHAR(255)not null,
@@ -27,7 +27,7 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Quote')
 	ELSE
 		PRINT 'Quote table already exists'
 
-If not exists (SELECT * FROM sys.tables WHERE [name] = 'User/Quotes')
+IF not exists (SELECT * FROM sys.tables WHERE [name] = 'User/Quotes')
 	BEGIN
 	CREATE TABLE [User_Quotes]
 
