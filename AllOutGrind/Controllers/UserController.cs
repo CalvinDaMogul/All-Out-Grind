@@ -8,8 +8,12 @@ namespace AllOutGrind.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class User : ControllerBase
+    public class User : ControllerBase 
     {
+        private readonly Ilogger<UserController> _logger;
+        private readonly IUserRepository _repo;
+
+        public class UserController(ILogger<UserController> logger IUserRepository repo)
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
