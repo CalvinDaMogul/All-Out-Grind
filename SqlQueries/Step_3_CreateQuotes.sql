@@ -21,3 +21,6 @@ VALUES
    ('"Sky is he limit and you know that you can have what you want, be what you want"',
     'Notorious B.I.G.',
 	 'Sky is the Limit')
+	 ('"Be somebody. Be something more than what you see in the mirror. Let the world be your mirror. Dont let them judge you because the mirror cant judge you. You judge what you see in the mirror"',
+	 'Lil Wayne',
+	 'Uknown')
