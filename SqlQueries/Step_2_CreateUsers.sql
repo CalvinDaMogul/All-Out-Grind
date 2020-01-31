@@ -20,3 +20,9 @@ INSERT INTO [user]
   'Trevor',
   'Guinn',
    'tdguinn87@gmail.com')
+ ('NicoleLaBailarina',
+ 'Nicole',
+ 'Ahima',
+ 'nicole.ahima@gmail.com')
+
+ SELECT * From [User]
