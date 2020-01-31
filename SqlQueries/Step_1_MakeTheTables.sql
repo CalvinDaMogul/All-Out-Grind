@@ -54,7 +54,7 @@ IF not exists (SELECT * FROM sys.tables WHERE [name] = 'Friends')
 	IF not exists (SELECT * FROM sys.foreign_keys WHERE [name] = 'FK_Quotes_Id')
 		BEGIN
 		ALTER TABLE [User_Quotes]
-		ADD CONSTRAINT FK_Quote_Id
+		ADD CONSTRAINT FK_Quotes_Id
 			FOREIGN KEY (Id)
 			REFERENCES QuoteId(Id)
 	END
