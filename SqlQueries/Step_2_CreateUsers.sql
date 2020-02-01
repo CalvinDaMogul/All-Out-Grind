@@ -1,6 +1,7 @@
 DECLARE @user1 UNIQUEIDENTIFIER
 DECLARE @user2 UNIQUEIDENTIFIER
 DECLARE @user3 UNIQUEIDENTIFIER
+DECLARE @user4 UNIQUEIDENTIFIER
 
 INSERT INTO [user]
 ([UserName],
@@ -19,7 +20,7 @@ INSERT INTO [user]
  ('TrevOfEv',
   'Trevor',
   'Guinn',
-   'tdguinn87@gmail.com')
+   'tdguinn87@gmail.com'),
  ('NicoleLaBailarina',
  'Nicole',
  'Ahima',

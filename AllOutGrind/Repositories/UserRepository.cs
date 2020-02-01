@@ -12,7 +12,7 @@ namespace AllOutGrind.Repositories
         string _connectionstring = "Server=localhost;Database=AllOutGrind;Trusted_Connection=True;";
         public bool UserEmailCheck(string newUserEmailCheck)
         {
-            using (var db = new Sqlconnection = _connectionstring)
+            using (var db = new SqlConnection( _connectionstring))
             {
                 var sql = @"SELECT *
                             FROM [User]
