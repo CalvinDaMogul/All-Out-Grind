@@ -49,5 +49,9 @@ VALUES
 Stand for something, or die in the morning."',
     'Kendrick Lamar',
 	 'Unknown')
+	 ('"Every boss started as a worker."',
+	 'Rick Ross',
+	  'Unkown')
+
 
 
