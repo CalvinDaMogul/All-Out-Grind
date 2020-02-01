@@ -5,17 +5,26 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using AllOutGrind.DataModels;
+using AllOutGrind.Dtos;
+using AllOutGrind.Repositories;
 
 namespace AllOutGrind.Controllers
 {
     [Route("api/[controller]")]
     [ApiController, Authorize]
-    public class UserController : ControllerBase 
+    public class UserController : ControllerBase
     {
-        private readonly Ilogger<UserController> _logger;
+        private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _repo;
 
-        public class UserController(ILogger<UserController> logger IUserRepository repo)
+        public UserController (ILogger<UserController> logger, IUserRepository repo)
+        {
+            _logger = logger;
+            _repo = repo;
+        }
+       
+            
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
