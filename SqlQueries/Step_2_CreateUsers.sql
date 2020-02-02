@@ -26,4 +26,7 @@ INSERT INTO [user]
  'Ahima',
  'nicole.ahima@gmail.com')
 
- SELECT * From [User]
+
+
+ DELETE FROM [User]
+ WHERE Id= 9FEE8323-7D53-425C-B031-4CD6C73E336B;
