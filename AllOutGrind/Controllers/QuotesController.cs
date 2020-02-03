@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AllOutGrind.Controllers
 {
     [Route("api/[controller]")]
-    public class ValuesController : Controller
+    public class QuotesController : Controller
     {
         // GET: api/<controller>
         [HttpGet]
