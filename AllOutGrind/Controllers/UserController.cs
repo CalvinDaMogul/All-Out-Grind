@@ -12,10 +12,10 @@ namespace AllOutGrind.Controllers
     [ApiController, Authorize]
     public class UserController : ControllerBase 
     {
-        private readonly Ilogger<UserController> _logger;
+        private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _repo;
 
-        public class UserController(ILogger<UserController> logger IUserRepository repo)
+        public UserController(ILogger<UserController> logger IUserRepository repo)
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
