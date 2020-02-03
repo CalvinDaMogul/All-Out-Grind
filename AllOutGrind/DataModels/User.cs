@@ -12,5 +12,6 @@ namespace AllOutGrind.DataModels
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public string FirebaseUid { get; set; }
     }
 }
