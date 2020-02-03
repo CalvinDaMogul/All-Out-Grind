@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using AllOutGrind.DataModels;
+using AllOutGrind.Dtos;
 using Dapper;
 
 namespace AllOutGrind.Repositories
 {
-    public class UserRepository
+    public class UserRepository:IUserRepository
     {
         string _connectionstring = "Server=localhost;Database=AllOutGrind;Trusted_Connection=True;";
         public bool UserEmailCheck(string newUserEmailCheck)

@@ -5,49 +5,76 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using AllOutGrind.Dtos;
+using AllOutGrind.DataModels;
 using AllOutGrind.Repositories;
+using Microsoft.Exchange.WebServices.Data;
 
 namespace AllOutGrind.Controllers
 {
     [Route("api/[controller]")]
     [ApiController, Authorize]
-    public class UserController : ControllerBase 
+    public class UserController : FirebaseEnabledController 
     {
         private readonly ILogger<UserController> _logger;
         private readonly IUserRepository _repo;
 
-        public UserController(ILogger<UserController> logger, IUserRepository repo)
+        public UserController(IUserRepository repo)
         {
-            _logger = logger;
             _repo = repo;
         }
-        // GET api/values
+
+
+        // GET: api/User
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("firebaseUid/{firebaseUid}")]
+        public IActionResult Get(string firebaseUid)
         {
-            return "value";
+            var user = _repo.GetUserByFirebaseUid(firebaseUid);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(user);
+            }
         }
 
-        // POST api/values
+        // POST: api/User
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult AddUser(AddNewUserDto newUser)
         {
+            if (_repo.AddNewUser(newUser))
+            {
+                return Created($"user/{newUser.Email}", newUser);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        // PUT: api/User/
+        [HttpPut("{userId}")]
+        public IActionResult EditUser(User editedUser)
         {
+            if (_repo.EditUser(editedUser))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
-        // DELETE api/values/5
+        // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

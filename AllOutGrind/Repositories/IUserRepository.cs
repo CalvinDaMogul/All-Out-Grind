@@ -7,5 +7,7 @@ namespace AllOutGrind.Repositories
 {
     public class IUserRepository
     {
+        public string Email { get; set; }
+        public string FirebaseUid { get; set; }
     }
 }
