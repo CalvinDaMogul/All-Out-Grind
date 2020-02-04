@@ -17,9 +17,9 @@ namespace AllOutGrind.Controllers
     public class UserController : FirebaseEnabledController 
     {
         private readonly ILogger<UserController> _logger;
-        private readonly IUserRepository _repo;
+        private readonly UserRepository _repo;
 
-        public UserController(IUserRepository repo)
+        public UserController(UserRepository repo)
         {
             _repo = repo;
         }
