@@ -15,8 +15,7 @@ namespace AllOutGrind.Repositories
             using (var db = new SqlConnection( _connectionstring))
             {
                 var sql = @"SELECT *
-                            FROM [User]
-                            WHERE [Email] = @newUserEmailCheck";
+                            FROM [User]";
                 var parameters = new { newUserEmailCheck };
                 var emailAddressComesBack = db.Query<User>(sql, parameters);
                 if (emailAddressComesBack.Count() != 0)
