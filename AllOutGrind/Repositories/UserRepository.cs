@@ -1,15 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Threading.Tasks;
 using AllOutGrind.DataModels;
 using AllOutGrind.Dtos;
 using Dapper;
 
 namespace AllOutGrind.Repositories
 {
-    public class UserRepository:IUserRepository
+    public class UserRepository
     {
         string _connectionstring = "Server=localhost;Database=AllOutGrind;Trusted_Connection=True;";
         public bool UserEmailCheck(string newUserEmailCheck)
@@ -21,7 +19,7 @@ namespace AllOutGrind.Repositories
                             WHERE [Email] = @newUserEmailCheck";
                 var parameters = new { newUserEmailCheck };
                 var emailAddressComesBack = db.Query<User>(sql, parameters);
-                if (emailAddressComesBack.Count()! = 0)
+                if (emailAddressComesBack.Count() != 0)
                 {
                     return true;
                 }
@@ -55,7 +53,12 @@ namespace AllOutGrind.Repositories
             }
         }
 
-        public User GetUserByFirebaseUid(string firebasuid)
+        internal bool EditUser(User editedUser)
+        {
+            throw new NotImplementedException();
+        }
+
+        public User GetUserByFirebaseUid(string firebaseUid)
         {
             using (var db = new SqlConnection(_connectionstring))
             {
