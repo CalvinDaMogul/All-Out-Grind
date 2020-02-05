@@ -7,3 +7,5 @@ const getAllQuotes = () => new Promise ((resovle, reject) => {
     .then(reult => resovle(result.data))
     .catch(err => reject(err));
 })
+
+export default { getAllQuotes };
