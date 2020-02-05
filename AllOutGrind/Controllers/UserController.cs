@@ -13,29 +13,30 @@ using Microsoft.Exchange.WebServices.Data;
 namespace AllOutGrind.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController, Authorize]
-    public class UserController : FirebaseEnabledController 
+    [ApiController]
+    public class UserController : ControllerBase 
     {
         private readonly ILogger<UserController> _logger;
         private readonly UserRepository _repo;
 
         public UserController(UserRepository repo)
         {
+            
             _repo = repo;
         }
 
 
         // GET: api/User
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<User> GetAll()
         {
-            return new string[] { "value1", "value2" };
+            return _repo.GetAllUsers();
         }
 
-        [HttpGet("firebaseUid/{firebaseUid}")]
-        public IActionResult Get(string firebaseUid)
+        [HttpGet("User/{Email}")]
+        public IActionResult Get(string Email)
         {
-            var user = _repo.GetUserByFirebaseUid(firebaseUid);
+            var user = _repo.GetUserByEmail(Email);
             if (user == null)
             {
                 return NotFound();
@@ -47,18 +48,18 @@ namespace AllOutGrind.Controllers
         }
 
         // POST: api/User
-        [HttpPost]
-        public IActionResult AddUser(AddNewUserDto newUser)
-        {
-            if (_repo.AddNewUser(newUser))
-            {
-                return Created($"user/{newUser.Email}", newUser);
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
+        //[HttpPost]
+        //public IActionResult AddUser(AddNewUserDto newUser)
+        //{
+        //    if (_repo.AddNewUser(newUser))
+        //    {
+        //        return Created($"user/{newUser.Email}", newUser);
+        //    }
+        //    else
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
 
         // PUT: api/User/
         [HttpPut("{userId}")]
