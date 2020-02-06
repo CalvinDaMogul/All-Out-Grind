@@ -7,4 +7,4 @@ const quoteShapes = PropTypes.shape({
     artistName: PropTypes.string.isRequired
 });
 
-export default { quoteShape };
+export default { quoteShapes };
