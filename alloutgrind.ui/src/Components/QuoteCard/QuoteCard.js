@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-import quoteShape from '../../propz/quoteShape';
+import QuoteShape from '../../Helpers/propz/QuoteShape';
 import './QuoteCard.scss';
 
 class QuoteCard extends React.Component {
-    static PropTypes = {
-        quotes: quoteShape.qouteCardShape,
+    state = {
+        quote: {},
     }
 
     render() {
