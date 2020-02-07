@@ -20,6 +20,22 @@ namespace AllOutGrind.Repositories
             }
         }
 
+        public User GetUser(Guid userId)
+        {
+            using (var db = new SqlConnection(_connectionString))
+            {
+                var sql = @"select *
+                            from [User]
+                            where Id =@UserId";
+                var parameters = new
+                {
+                    UserId = userId
+                };
+                var user = db.QueryFirst<User>(sql, parameters);
+                return user;
+            }
+        }
+
         //public bool AddNewUser(AddNewUserDto newUser)
         //{
         //    using (var db = new SqlConnection(_connectionString))
@@ -43,10 +59,7 @@ namespace AllOutGrind.Repositories
         //    }
         //}
 
-        internal bool EditUser(User editedUser)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public User GetUserByEmail(string Email)
         {
@@ -58,6 +71,24 @@ namespace AllOutGrind.Repositories
                 var parameters = new { Email };
                 var user = db.QueryFirstOrDefault<User>(sql, parameters);
                 return user;
+            }
+        }
+
+        public bool updatedUser(User UserToUpdate, Guid Id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+
+                var sql = @"UPDATE [dbo].[User]
+	                            SET [UserName] = @username,
+
+                                    [Email] = @email
+	                        WHERE [Id] = @id";
+
+                UserToUpdate.Id = Id;
+
+                return connection.Execute(sql, UserToUpdate) == 1;
             }
         }
     }

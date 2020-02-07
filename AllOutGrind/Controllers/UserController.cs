@@ -47,6 +47,14 @@ namespace AllOutGrind.Controllers
             }
         }
 
+        [HttpGet("{userId}")]
+        public User Get(Guid userId)
+        {
+            var repo = new UserRepository();
+            var user = repo.GetUser(userId);
+            return user;
+        }
+
         // POST: api/User
         //[HttpPost]
         //public IActionResult AddUser(AddNewUserDto newUser)
@@ -62,17 +70,20 @@ namespace AllOutGrind.Controllers
         //}
 
         // PUT: api/User/
-        [HttpPut("{userId}")]
-        public IActionResult EditUser(User editedUser)
+        [HttpPut("{id}")]
+        public void Update(UpdateUserDto updatedUserCommand, int id)
+
         {
-            if (_repo.EditUser(editedUser))
+            var repo = new UserRepository();
+            var updatedUser = new User
             {
-                return Ok();
-            }
-            else
-            {
-                return BadRequest();
-            }
+                FirstName = updatedUserCommand.FirstName,
+                LastName = updatedUserCommand.LastName,
+                Email = updatedUserCommand.Email,
+
+            };
+            repo.updatedUser(updatedUser, id);
+
         }
 
         // DELETE: api/ApiWithActions/5
