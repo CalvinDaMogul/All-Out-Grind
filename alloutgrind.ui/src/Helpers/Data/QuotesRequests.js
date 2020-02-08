@@ -8,9 +8,9 @@ const getAllQuotes = () => new Promise ((resolve, reject) => {
     .catch(err => reject(err));
 })
 
-const getUsersQuotes = () => new Promise ((resolev, reject) => {
-    axios.get(`${baseUrl}`)
-    .then(res => resovle(res.data))
+const getUsersQuotes = userId => new Promise ((resolve, reject) => {
+    axios.get(`${baseUrl}/user/${userId}`)
+    .then(res => resolve(res.data))
     .catch(err => reject(err));
 })
 
