@@ -6,6 +6,8 @@ import Navbar from '../Navbar/Navbar';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 import QuotePage from '../QuotePage/QuotePage';
+import AllQuotes from '../AllQuotes/AllQuotes';
+
 
 import './App.scss';
 
@@ -28,7 +30,8 @@ class App extends React.Component {
         <BrowserRouter>
             <Switch>
             <Route exact path="/Login" component={props => <Login {...props} setAuthenticated={this.setAuthenticated}/>} />
-              <Route exact component={QuotePage} path="/Quote Page"/>
+              <Route exact path="/User" component={QuotePage} path="/Quote Page"/>
+              {/* <Route exact component={} path=""/> */}
             </Switch>
         </BrowserRouter>
       </div>

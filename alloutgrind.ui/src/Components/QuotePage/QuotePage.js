@@ -11,15 +11,19 @@ class QuotePage extends React.Component {
         quotes: [],
     }
 
-    getAllQuotes = () => {
-        QuotesRequests.getAllQuotes().then(res => this.setState({quotes: res}));
+    // getAllQuotes = () => {
+        // QuotesRequests.getAllQuotes().then(res => this.setState({quotes: res}));
+        
+    // }
+    
+    getUsersQuotes =() => {
+        QuotesRequests.getUsersQuotes(this.state.userInfo.id).then(res => this.setState({quotes: res}));
     }
 
     componentDidMount() {
-        this.getAllQuotes();
         // this.props.userId this should be passed from app.js on login
         const userInfo = UserRequests.getSessionUser();
-        this.setState({ userInfo: userInfo });
+        this.setState({ userInfo: userInfo },this.getUsersQuotes);
     }
 
     render() {
