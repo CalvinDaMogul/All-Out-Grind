@@ -32,6 +32,12 @@ namespace AllOutGrind.Controllers
         {
             return _repo.GetAllQuotes();
         }
+        
+        [HttpGet]
+        public IEnumerable<Quotes> GetUserQuotes()
+        {
+            return _repo.GetUsersQuote();
+        }
 
         // GET api/<controller>/5
         [HttpGet("{Quoteid}")]

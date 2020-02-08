@@ -11,13 +11,13 @@ class QuoteCard extends React.Component {
     }
 
     render() {
-        const { quote } = this.props;
+        const { currentQuote } = this.props;
         return (
             <div className="Blog">
             <div className="container">
-        <h2 className="Name-title">{quote.artistName}</h2>
-         <p className="Name-title">{quote.songName}</p>
-        <p className="Name-title">{quote.quote}</p>
+        <h2 className="Name-title">{currentQuote.artistName}</h2>
+         <p className="Name-title">{currentQuote.songName}</p>
+        <p className="Name-title">{currentQuote.quote}</p>
             </div>
             </div>
             );

@@ -3,9 +3,9 @@ import UserRequests from '../../Helpers/Data/UserRequests';
 import QuotesRequests from '../../Helpers/Data/QuotesRequests';
 import QuoteCard from '../QuoteCard/QuoteCard';
 
-import './QuotePage.scss';
+import './AllQuotes.scss';
 
-class QuotePage extends React.Component {
+class AllQuotes extends React.Component {
     state = {
         userInfo: {},
         quotes: [],
@@ -39,4 +39,4 @@ class QuotePage extends React.Component {
     }
 
 
-export default QuotePage;
+export default AllQuotes;
