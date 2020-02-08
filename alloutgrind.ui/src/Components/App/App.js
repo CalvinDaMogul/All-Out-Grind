@@ -13,10 +13,9 @@ import './App.scss';
 class App extends React.Component {
   state = {
     authenticated: true,
-    
   }
 
-  setAuthenticated = () => {
+  setAuthenticated = (userId) => {
     this.setState({ authenticated: true });
   }
 
@@ -29,8 +28,7 @@ class App extends React.Component {
         <BrowserRouter>
             <Switch>
             <Route exact path="/Login" component={props => <Login {...props} setAuthenticated={this.setAuthenticated}/>} />
-              <Route exact Component={QuotePage} path="/Quote Page" 
-              />
+              <Route exact component={QuotePage} path="/Quote Page"/>
             </Switch>
         </BrowserRouter>
       </div>

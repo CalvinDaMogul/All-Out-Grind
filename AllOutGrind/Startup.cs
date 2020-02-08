@@ -28,6 +28,11 @@ namespace AllOutGrind
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            services.AddCors(options =>
+               options.AddPolicy("ItsAllGood",
+                   builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin())
+               );
+
             services.AddTransient<IQuoteRepository, QuoteRepository>();
             services.AddTransient<UserRepository>();
 
@@ -36,16 +41,19 @@ namespace AllOutGrind
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
             else
             {
+
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
+            app.UseCors("ItsAllGood");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

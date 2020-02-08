@@ -38,5 +38,24 @@ namespace AllOutGrind.Repositories
                 return quote;
             }
         }
+        //Create a getusersquote function 
+        public IEnumerable<Quotes> GetUsersQuote(Guid UserId)
+        {
+            using (var db = new SqlConnection(_connectionString))
+            {
+                var sql = @"SELECT * FROM Quotes 
+                            JOIN User_Quotes on Id = QuoteId
+                            WHERE User_Quotes.UserId = @userid";
+                
+                var parameters = new { UserId };
+                var quotes = db.Query<Quotes>(sql, parameters);
+                return quotes;
+            }
+        }
+
+        public IEnumerable<Quotes> GetUsersQuote()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

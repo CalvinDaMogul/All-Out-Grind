@@ -12,7 +12,7 @@ using Microsoft.Exchange.WebServices.Data;
 
 namespace AllOutGrind.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase 
     {
@@ -33,7 +33,7 @@ namespace AllOutGrind.Controllers
             return _repo.GetAllUsers();
         }
 
-        [HttpGet("User/{Email}")]
+        [HttpGet("email/{Email}")]
         public IActionResult Get(string Email)
         {
             var user = _repo.GetUserByEmail(Email);

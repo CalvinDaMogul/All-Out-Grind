@@ -13,9 +13,9 @@ class Login extends React.Component {
         UserRequests
         .loginUser(email)
         .then((user) => {
-            this.props.history.push('/');
             sessionStorage.setItem('userInfo', JSON.stringify(user.data));
             this.props.setAuthenticated();
+            this.props.history.push("/Quote Page");
         })
         .catch((error) => {
             console.error('Login error', error);
@@ -23,7 +23,7 @@ class Login extends React.Component {
         });
     };
 
-    nameChange = (e) => {
+    emailChange = (e) => {
         const newEmail = e.target.value;
         this.setState({email: newEmail });
     };
@@ -42,10 +42,10 @@ class Login extends React.Component {
                       <input
                         type="email"
                         className="form-control"
-                        id="inputEmail"
-                        placeholder="email"
-                        value={this.state.email}
-                        onChange={this.emailChange}
+                       id="inputEmail"
+                       placeholder="email"
+                       value={this.state.email}
+                       onChange={this.emailChange}
                       />
                     </div>
                   </div>

@@ -7,7 +7,6 @@ const loginUser = email => axios.get(`${baseUrl}/email/${email}`);
 
 const getSessionUser = () => {
     const userInfo = sessionStorage.getItem('userInfo');
-    console.error(userInfo);
     return JSON.parse(userInfo);
   };
 
