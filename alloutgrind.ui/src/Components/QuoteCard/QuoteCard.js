@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-import QuoteShape from '../../Helpers/propz/QuoteShape';
+import QuoteShape from '../../Helpers/propz/quoteShape';
 import './QuoteCard.scss';
 
 class QuoteCard extends React.Component {

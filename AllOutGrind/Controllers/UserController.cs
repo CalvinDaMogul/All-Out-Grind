@@ -71,7 +71,7 @@ namespace AllOutGrind.Controllers
 
         // PUT: api/User/
         [HttpPut("{id}")]
-        public void Update(UpdateUserDto updatedUserCommand, int id)
+        public void Update(UpdateUserDto updatedUserCommand, Guid id)
 
         {
             var repo = new UserRepository();
@@ -88,7 +88,7 @@ namespace AllOutGrind.Controllers
 
         // DELETE: api/ApiWithActions/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
         }
     }

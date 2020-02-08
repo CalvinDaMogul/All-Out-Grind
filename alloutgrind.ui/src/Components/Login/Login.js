@@ -51,7 +51,8 @@ class Login extends React.Component {
                   </div>
                   <div className="form-group">
                     <div className="col-sm-12 text-center">
-                      <Link to="/register">Need to Register?</Link>
+                      <Link to="/register">Sign Up
+                      3</Link>
                     </div>
                   </div>
                   <div className="form-group">
