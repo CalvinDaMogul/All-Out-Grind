@@ -11,6 +11,6 @@ namespace AllOutGrind.Repositories
         Quotes GetQuotesById(Guid quoteId);
 
         IEnumerable<Quotes> GetAllQuotes();
-        IEnumerable<Quotes> GetUsersQuote();
+        IEnumerable<Quotes> GetUsersQuote(Guid userId);
     }
 }

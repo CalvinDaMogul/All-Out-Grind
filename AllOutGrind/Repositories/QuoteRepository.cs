@@ -53,9 +53,6 @@ namespace AllOutGrind.Repositories
             }
         }
 
-        public IEnumerable<Quotes> GetUsersQuote()
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
