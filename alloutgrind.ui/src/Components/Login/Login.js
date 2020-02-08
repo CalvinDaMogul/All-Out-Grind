@@ -19,11 +19,11 @@ class Login extends React.Component {
         })
         .catch((error) => {
             console.error('Login error', error);
-            this.props.history.push('/Register');
+            this.props.history.push('/Sign Up');
         });
     };
 
-    nameChange = () => {
+    nameChange = (e) => {
         const newEmail = e.target.value;
         this.setState({email: newEmail });
     };
@@ -52,14 +52,14 @@ class Login extends React.Component {
                   <div className="form-group">
                     <div className="col-sm-12 text-center">
                       <Link to="/register">Sign Up
-                      3</Link>
+                      </Link>
                     </div>
                   </div>
                   <div className="form-group">
                     <div className="col-sm-12">
                       <button
                         type="submit"
-                        className="btn btn-default col-xs-12"
+                        className="btn btn-primary col-xs-12"
                         onClick={this.loginClickEvent}
                       >
                         Login
