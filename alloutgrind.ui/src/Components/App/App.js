@@ -29,6 +29,7 @@ class App extends React.Component {
         <Navbar/>
         <BrowserRouter>
             <Switch>
+            <Route exact path="/Home" component={Home} path="/Home" />
             <Route exact path="/Login" component={props => <Login {...props} setAuthenticated={this.setAuthenticated}/>} />
               <Route component={QuotePage} path="/Quote Page"/>
               <Route component={AllQuotes} path="/All Quotes"/>

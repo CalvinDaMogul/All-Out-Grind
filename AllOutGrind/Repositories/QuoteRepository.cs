@@ -55,20 +55,20 @@ namespace AllOutGrind.Repositories
 
         public Quotes AddQuotes(AddNewQuotesDto newQuote)
         {
-            using (var db = new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
+                connection.Open();
+
                 var sql = @"INSERT INTO QUOTES 
-                                    ([Quote],
-                                    [ArtistName],
-                                    [SongName])
-                                output inserted
+                                    ([Quote]
+                                    ,[ArtistName]
+                                    ,[SongName])
+                                output inserted.*
                              VALUES (@Quote
                                     ,@ArtistName
                                     ,@SongName)";
 
-                var parameters = new { };
-                var quotes = db.Query<Quotes>(sql, parameters);
-                return quotes;
+                return connection.QueryFirst<Quotes>(sql, newQuote);
             }
             }
 
@@ -77,4 +77,4 @@ namespace AllOutGrind.Repositories
 
         }
     }
-}
+

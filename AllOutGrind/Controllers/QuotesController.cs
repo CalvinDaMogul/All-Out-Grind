@@ -56,9 +56,10 @@ namespace AllOutGrind.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public IEnumerable<Quotes> AddQuotes()
+        public void Create(AddNewQuotesDto newQuotes)
         {
-            return _repo.AddQuotes();
+            var repo = new QuoteRepository();
+            repo.AddQuotes(newQuotes);
         }
 
         // PUT api/<controller>/5
