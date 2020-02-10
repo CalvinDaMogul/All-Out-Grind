@@ -20,8 +20,8 @@ namespace AllOutGrind.Repositories
                 var sql = @"SELECT * 
                             FROM [Quotes]";
 
-                var parameters = new {  };
-                return  db.Query<Quotes>(sql, parameters);
+                var parameters = new { };
+                return db.Query<Quotes>(sql, parameters);
             }
         }
 
@@ -46,13 +46,35 @@ namespace AllOutGrind.Repositories
                 var sql = @"SELECT * FROM Quotes 
                             JOIN User_Quotes on Id = QuoteId
                             WHERE User_Quotes.UserId = @userid";
-                
+
                 var parameters = new { UserId };
                 var quotes = db.Query<Quotes>(sql, parameters);
                 return quotes;
             }
         }
 
-      
+        public Quotes AddQuotes(AddNewQuotesDto newQuote)
+        {
+            using (var db = new SqlConnection(_connectionString))
+            {
+                var sql = @"INSERT INTO QUOTES 
+                                    ([Quote],
+                                    [ArtistName],
+                                    [SongName])
+                                output inserted
+                             VALUES (@Quote
+                                    ,@ArtistName
+                                    ,@SongName)";
+
+                var parameters = new { };
+                var quotes = db.Query<Quotes>(sql, parameters);
+                return quotes;
+            }
+            }
+
+
+
+
+        }
     }
 }

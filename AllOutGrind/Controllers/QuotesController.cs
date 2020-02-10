@@ -56,14 +56,16 @@ namespace AllOutGrind.Controllers
 
         // POST api/<controller>
         [HttpPost]
-        public void Post([FromBody]string value)
+        public IEnumerable<Quotes> AddQuotes()
         {
+            return _repo.AddQuotes();
         }
 
         // PUT api/<controller>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
         {
+            
         }
 
         // DELETE api/<controller>/5
