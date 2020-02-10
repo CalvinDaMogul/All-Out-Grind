@@ -24,7 +24,7 @@ const MyNavbar = (props) => {
       <Collapse isOpen={isOpen} navbar>
         <Nav className="ml-auto" navbar>
           <NavItem>
-            <NavLink href="/AllQuotes/">Quotes</NavLink>
+            <NavLink href="/All Quotes/">Quotes</NavLink>
           </NavItem>
           <NavItem>
             <NavLink href="/Quote Page/">User</NavLink>

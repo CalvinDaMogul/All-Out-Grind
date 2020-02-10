@@ -1,0 +1,17 @@
+/****** Script for SelectTopNRows command from SSMS  ******/
+SELECT TOP (1000) [UserId]
+      ,[QuoteId]
+  FROM [AllOutGrind].[dbo].[User_Quotes]
+
+  --insert into User_Quotes values ('F3E24896-A2A6-491B-A985-1AA0EA4E10DD', '1448260D-A919-4CDF-9EC0-154498B7231A')
+  --insert into User_Quotes values ('F3E24896-A2A6-491B-A985-1AA0EA4E10DD', '6F6A545A-692B-4576-986C-6597A7DE5E82')
+  --insert into User_Quotes values ('F3E24896-A2A6-491B-A985-1AA0EA4E10DD', 'AAF91932-2F27-458C-A804-32BADA6D54E2')
+  --insert into User_Quotes values ('F3E24896-A2A6-491B-A985-1AA0EA4E10DD', '95C981A0-77C4-4E5F-979D-1641F0EAA925')
+  --insert into User_Quotes values ('5567C811-B7DA-4E57-971C-38379026E312', '88AF1E09-3553-4EB7-8335-8E0FEF388ADD')
+  --insert into User_Quotes values ('5567C811-B7DA-4E57-971C-38379026E312', 'E9866168-A762-4ED8-9D12-6D21075929D3')
+  insert into User_Quotes values ('0971B08D-0732-4DB6-A85D-09678E077708', 'E9866168-A762-4ED8-9D12-6D21075929D3')
+  insert into User_Quotes values ('0971B08D-0732-4DB6-A85D-09678E077708', '73812FCF-15D2-4564-BFC0-ED446713D93B')
+
+  SELECT * FROM Quotes 
+  JOIN User_Quotes on Id = QuoteId
+  WHERE User_Quotes.UserId = @userid
