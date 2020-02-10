@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AllOutGrind.DataModels;
+using AllOutGrind.Dtos;
 
 namespace AllOutGrind.Repositories
 {
@@ -12,5 +13,6 @@ namespace AllOutGrind.Repositories
 
         IEnumerable<Quotes> GetAllQuotes();
         IEnumerable<Quotes> GetUsersQuote(Guid userId);
+        Quotes AddQuotes(AddNewQuotesDto newQuote);
     }
 }
