@@ -14,6 +14,12 @@ const getUsersQuotes = userId => new Promise ((resolve, reject) => {
     .catch(err => reject(err));
 })
 
+const addQuote = (newQuote) => new Promise ((resolve, reject) => {
+    axios.post(`${baseUrl}`, newQuote)
+    .then(res => resolve(res.data))
+    .catch(err => reject(err));
+})
 
 export default { getAllQuotes,
-                getUsersQuotes };
+                getUsersQuotes, 
+                addQuote };

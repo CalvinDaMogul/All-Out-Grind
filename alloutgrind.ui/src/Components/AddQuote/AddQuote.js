@@ -1,109 +1,70 @@
 import React from 'react';
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import QuoteRequests from '../../Helpers/Data/QuotesRequests';
+import QuotesRequests from '../../Helpers/Data/QuotesRequests';
 
 import './AddQuote.scss'
 
+const defaultQuote = {
+    ArtistName:'',
+    SongName:'',
+    Quote:'',
+}
+
 class AddQuote extends React.Component {
     state = {
-
-    
-
+        newQuote: defaultQuote,
 };
 
-render() {
+formFieldStringState = (name, e) => {
+    const tempQuote = { ...this.state.newQuote }
+    tempQuote[name] = e.target.value;
+      this.setState({ newQuote: tempQuote });
+      console.log(tempQuote)
+}
 
+artistChange = e => this.formFieldStringState('ArtistName', e);
+songChange = e => this.formFieldStringState('SongName', e);
+quoteChange = e => this.formFieldStringState('Quote', e);
+
+formSubmit = e => {
+    e.preventDefault();
+    const saveMe = { ...this.state.newQuote };
+    QuotesRequests.addQuote(saveMe)
+    .then(() => this.props.history.push('/All Quotes'))
+    .catch(err => console.error('unable to save', err))
+}
+
+render() {
+const { newQuote } = this.state;
     return (
-        <Form>
+        <Form onSubmit={ this.formSubmit }>
         <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Email</Label>
+          <Label for="exampleEmail" sm={2}>Artist Name</Label>
           <Col sm={10}>
-            <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+            <Input type="name" id="exampleEmail" placeholder="Enter artists name" 
+            value={newQuote.ArtistName}
+            onChange={this.artistChange}/>
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label for="examplePassword" sm={2}>Password</Label>
+          <Label for="exampleEmail" sm={2}>Song Name</Label>
           <Col sm={10}>
-            <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+            <Input type="name"  id="exampleEmail" placeholder="Enter song name" 
+            value={newQuote.SongName}
+            onChange={this.songChange}/>
           </Col>
         </FormGroup>
         <FormGroup row>
-          <Label for="exampleSelect" sm={2}>Select</Label>
+          <Label for="exampleText" sm={2}>Quote</Label>
           <Col sm={10}>
-            <Input type="select" name="select" id="exampleSelect">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleSelectMulti" sm={2}>Select Multiple</Label>
-          <Col sm={10}>
-            <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </Input>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleText" sm={2}>Text Area</Label>
-          <Col sm={10}>
-            <Input type="textarea" name="text" id="exampleText" />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleFile" sm={2}>File</Label>
-          <Col sm={10}>
-            <Input type="file" name="file" id="exampleFile" />
-            <FormText color="muted">
-              This is some placeholder block-level help text for the above input.
-              It's a bit lighter and easily wraps to a new line.
-            </FormText>
-          </Col>
-        </FormGroup>
-        <FormGroup tag="fieldset" row>
-          <legend className="col-form-label col-sm-2">Radio Buttons</legend>
-          <Col sm={10}>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio2" />{' '}
-                Option one is this and that—be sure to include why it's great
-              </Label>
-            </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio2" />{' '}
-                Option two can be something else and selecting it will deselect option one
-              </Label>
-            </FormGroup>
-            <FormGroup check disabled>
-              <Label check>
-                <Input type="radio" name="radio2" disabled />{' '}
-                Option three is disabled
-              </Label>
-            </FormGroup>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="checkbox2" sm={2}>Checkbox</Label>
-          <Col sm={{ size: 10 }}>
-            <FormGroup check>
-              <Label check>
-                <Input type="checkbox" id="checkbox2" />{' '}
-                Check me out
-              </Label>
-            </FormGroup>
+            <Input type="textarea" name="text" id="exampleText" 
+             value={newQuote.QuoteName}
+             onChange={this.quoteChange}/>
           </Col>
         </FormGroup>
         <FormGroup check row>
           <Col sm={{ size: 10, offset: 2 }}>
-            <Button>Submit</Button>
+            <Button type="submit">Submit</Button>
           </Col>
         </FormGroup>
       </Form>

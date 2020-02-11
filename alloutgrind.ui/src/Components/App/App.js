@@ -7,6 +7,7 @@ import Home from '../Home/Home';
 import Login from '../Login/Login';
 import QuotePage from '../QuotePage/QuotePage';
 import AllQuotes from '../AllQuotes/AllQuotes';
+import AddQuote from '../AddQuote/AddQuote';
 
 
 import './App.scss';
@@ -29,10 +30,11 @@ class App extends React.Component {
         <Navbar/>
         <BrowserRouter>
             <Switch>
-            <Route exact path="/Home" component={Home} path="/Home" />
+            {/* <Route exact path="/Home" component={Home} path="/Home" /> */}
             <Route exact path="/Login" component={props => <Login {...props} setAuthenticated={this.setAuthenticated}/>} />
               <Route component={QuotePage} path="/Quote Page"/>
               <Route component={AllQuotes} path="/All Quotes"/>
+              <Route component={AddQuote} path="/Add Quote"/>
             </Switch>
         </BrowserRouter>
       </div>

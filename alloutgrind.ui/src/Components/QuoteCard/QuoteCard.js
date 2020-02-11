@@ -20,11 +20,11 @@ class QuoteCard extends React.Component {
         // <p className="Name-title">{currentQuote.quote}</p>
         //     </div>
         //     </div>
-            <div class="card" style="width: 18rem;">
-            <div class="card-body">
+            <div className="card">
+            <div className="card-body">
               <h5 className="card-title">{currentQuote.artistName}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{currentQuote.songName}</h6>
-              <p class="card-text">{currentQuote.quote}</p>
+              <p className="card-text">{currentQuote.quote}</p>
               <a href="#" class="card-link"></a>
               <a href="#" class="card-link"></a>
             </div>
