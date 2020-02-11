@@ -68,9 +68,28 @@ namespace AllOutGrind.Repositories
                                     ,@ArtistName
                                     ,@SongName)";
 
+
                 return connection.QueryFirst<Quotes>(sql, newQuote);
             }
+
+        }
+            public UserQuoteDto AddQuotesToUser(UserQuoteDto newUserQuote)
+            {
+                using (var connection = new SqlConnection(_connectionString))
+                {
+                
+
+                    var sql = @"INSERT INTO [User_Quotes]
+                                    ([QuoteId]
+                                     ,[UserId])
+                                output inserted.*
+                             VALUES (@QuoteId
+                                    ,@UserId)";
+
+                    return connection.QueryFirst<UserQuoteDto>(sql, newUserQuote);
+                }
             }
+
 
 
 

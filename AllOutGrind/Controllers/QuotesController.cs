@@ -62,6 +62,13 @@ namespace AllOutGrind.Controllers
             repo.AddQuotes(newQuotes);
         }
 
+        [HttpPost("{userId}")]
+        public void Add(UserQuoteDto newUserQuotes)
+        {
+            var repo = new QuoteRepository();
+            repo.AddQuotesToUser(newUserQuotes);
+        }
+
         // PUT api/<controller>/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]string value)
