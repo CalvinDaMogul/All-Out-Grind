@@ -1,5 +1,23 @@
-.Home {
-    .testTarget {
-        color: red;
-    }
+.main-wrapper{
+    background-image: url(../../Assets/Jumbo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction:column;
+    height: 100vh;  
+    //justify-content: center;
+    align-items: center;
+}
+div.test{
+    color:#fff;
+    background-color: rgba(0, 0, 0, .6);
+    padding:50px; 
+    width:100%;
+    height:100%;
+    p{  
+        text-align:center;
+        font-size:4.5em;
+        font-weight:900;
+    }  
 }

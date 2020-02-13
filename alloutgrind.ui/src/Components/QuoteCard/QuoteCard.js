@@ -25,20 +25,16 @@ class QuoteCard extends React.Component {
     render() {
         const { currentQuote } = this.props;
         return (
-        //   <div className="Quote">
-        //     <div className="container">
-        // <h2 className="Name-title">{currentQuote.artistName}</h2>
-        //  <p className="Name-title">{currentQuote.songName}</p>
-        // <p className="Name-title">{currentQuote.quote}</p>
-        //     </div>
-        //     </div>
-            <div className="card">
+            <div className="Quotecard col-3">
             <div className="card-body">
               <h5 className="card-title">{currentQuote.artistName}</h5>
               <h6 className="card-subtitle mb-2 text-muted">{currentQuote.songName}</h6>
               <p className="card-text">{currentQuote.quote}</p>
-              <button className="btn btn-primary" onClick={this.addQuoteToUser}>test</button>
-            </div>
+              { this.props.location.pathname === "/All Quotes/"
+                ?<button className="btn cardBtn" onClick={this.addQuoteToUser}>test</button>
+                :null
+                }
+                </div>
           </div>
             );
         

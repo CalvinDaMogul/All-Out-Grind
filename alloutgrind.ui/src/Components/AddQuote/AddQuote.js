@@ -37,37 +37,41 @@ formSubmit = e => {
 render() {
 const { newQuote } = this.state;
     return (
+      <div className="form-wrapper">
+        <div className="secondary-form-wrapper">
+
         <Form onSubmit={ this.formSubmit }>
         <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Artist Name</Label>
-          <Col sm={10}>
+          <Label for="exampleEmail">Artist Name</Label>
+          
             <Input type="name" id="exampleEmail" placeholder="Enter artists name" 
             value={newQuote.ArtistName}
             onChange={this.artistChange}/>
-          </Col>
+         
         </FormGroup>
         <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Song Name</Label>
-          <Col sm={10}>
+          <Label for="exampleEmail">Song Name</Label>
+         
             <Input type="name"  id="exampleEmail" placeholder="Enter song name" 
             value={newQuote.SongName}
             onChange={this.songChange}/>
-          </Col>
+          
         </FormGroup>
         <FormGroup row>
-          <Label for="exampleText" sm={2}>Quote</Label>
-          <Col sm={10}>
+          <Label for="exampleText">Quote</Label>
             <Input type="textarea" name="text" id="exampleText" 
              value={newQuote.QuoteName}
              onChange={this.quoteChange}/>
-          </Col>
+          
         </FormGroup>
         <FormGroup check row>
-          <Col sm={{ size: 10, offset: 2 }}>
-            <Button type="submit">Submit</Button>
-          </Col>
+         
+            <Button type="submit" className="submitBtn">Submit</Button>
+         
         </FormGroup>
       </Form>
+        </div>
+    </div>
     );
 };
 

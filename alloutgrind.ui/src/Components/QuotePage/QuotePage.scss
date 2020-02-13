@@ -1,0 +1,14 @@
+.Quote {
+    background-image: url(../../Assets/Jumbo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction:column;
+    height: 100vh;  
+    //justify-content: center;
+    align-items: center;
+}
+.card-wrapper{
+    background-color: rgba(0, 0, 0, .6) !important;
+}
