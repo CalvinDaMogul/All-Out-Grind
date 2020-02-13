@@ -31,7 +31,7 @@ class QuoteCard extends React.Component {
               <h6 className="card-subtitle mb-2 text-muted">{currentQuote.songName}</h6>
               <p className="card-text">{currentQuote.quote}</p>
               { this.props.location.pathname === "/All Quotes/"
-                ?<button className="btn cardBtn" onClick={this.addQuoteToUser}>test</button>
+                ?<button className="btn cardBtn" onClick={this.addQuoteToUser}>Add Quote</button>
                 :null
                 }
                 </div>
