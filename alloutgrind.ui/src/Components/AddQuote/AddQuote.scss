@@ -1,0 +1,41 @@
+.form-wrapper{
+    background-image: url(../../Assets/Jumbo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction:column;
+    height: 100vh;
+    //justify-content: center;
+    align-items: center;
+    .secondary-form-wrapper{
+        background-color: rgba(0, 0, 0, .9) !important;
+        width:100%;
+        height:100%;
+        display:flex;
+        align-items: center;
+        form{
+            width: 45%;
+            margin: 0 auto;
+            label{
+                color:rgb(136, 101, 133) !important;
+            }
+            .form-control{
+                color: #fff !important;
+                background-color: rgba(0, 0, 0, .9);
+                border: 1px solid #886585;
+                &:focus{
+                    box-shadow:none !important;
+                }
+                &::placeholder{
+                    color:#fff;
+                }
+            }
+            .submitBtn{
+                background-color:rgb(100, 3, 92) !important;
+                border:1px solid rgb(100, 3, 92) !important;
+                color:#fff !important;
+            }
+        }
+    }
+}

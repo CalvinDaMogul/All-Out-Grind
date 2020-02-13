@@ -24,14 +24,13 @@ class AllQuotes extends React.Component {
 
     render() {
         const { quotes } = this.state;
-        const showQuotes = quotes.map(quote => <QuoteCard key={quote.id} currentQuote={quote}
+        const showQuotes = quotes.map(quote => <QuoteCard key={quote.id} location={this.props.location} currentQuote={quote}
         />);
 
         return( 
             <div className="Quote">
-                {showQuotes}
-                <div className="QuotePage">
-
+                <div className="card-wrapper">
+                    {showQuotes}
                 </div>
             </div>
         );

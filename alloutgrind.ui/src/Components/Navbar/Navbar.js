@@ -17,7 +17,7 @@ const MyNavbar = (props) => {
   const toggle = () => setIsOpen(!isOpen);
 
   return (
-    <div>
+    <div className="navbar-wrapper">
     <Navbar color="dark" dark expand="md">
       <NavbarBrand href="/">All Out Grind</NavbarBrand>
       <NavbarToggler onClick={toggle} />
@@ -36,7 +36,7 @@ const MyNavbar = (props) => {
             <NavLink href="/Add Quote">Add Quote</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink href="/LogOut">Log Out</NavLink>
+            <NavLink href="/App">Log Out</NavLink>
           </NavItem>
         </Nav>
       </Collapse>

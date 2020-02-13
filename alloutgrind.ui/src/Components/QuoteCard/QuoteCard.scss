@@ -1,0 +1,24 @@
+.Quote{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.Quotecard{
+    border: 1px solid rgb(15, 15, 15);
+    padding: 10px;
+    margin: 3px;
+    background-color:rgba(0,0,0, .9);
+    &:hover{
+        border:1px solid rgb(100, 3, 92);
+    }
+    .card-body{
+        color:rgb(235, 235, 235);
+        .cardBtn{
+            background-color:rgb(100, 3, 92);
+            color:#fff;
+        }
+        .text-muted{
+            color:rgb(136, 101, 133) !important;
+        }
+    }
+}

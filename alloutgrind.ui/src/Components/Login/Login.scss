@@ -1,0 +1,47 @@
+.Login {
+    background-image: url(../../Assets/Jumbo.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display:flex;
+    flex-direction:column;
+    height: 100vh;  
+    //justify-content: center;
+    align-items: center;
+}
+
+#login-form {
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ghostwhite;
+    background-color: rgba(0, 0, 0, .6) !important;
+    form{
+        width:45%;
+    }
+    .form-control{
+        color: #fff !important;
+        background-color: rgba(0, 0, 0, .9);
+        border: 1px solid #886585;
+        width:100%;
+        &:focus{
+            box-shadow:none !important;
+        }
+        &::placeholder{
+            color:#fff;
+        }
+    }
+    .submitBtn{
+        background-color:rgb(100, 3, 92) !important;
+            border:1px solid rgb(51, 2, 47) !important;
+            color:#fff !important;
+            box-shadow:3px 3px 5px rgba(0, 0, 0, .6);
+    }
+
+}
+
+#inputEmail {
+    width: 230px;
+}
